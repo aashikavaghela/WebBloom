@@ -53,7 +53,7 @@ WebBloom/
 
 ## Credits
 
-- Developed by: _[Your Name or Team]_  
+- Developed by: Prerak Pithadiya 
 - Date: 2025-07-18
 
 ---

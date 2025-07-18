@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aashika's Portfolio Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: rgb(155, 180, 138);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0;
+      background: #fff;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .page-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .page-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      animation: fadeInCard 0.8s ease forwards;
+    }
+
+    .page-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .page-card h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .page-card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .page-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .page-card a:hover {
+      background: #388e3c;
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      color: #555;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInCard {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Welcome to My Web Journey</h1>
+      <p class="subtitle">Explore my progress through these development projects</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-links">
+      <div class="page-card fadeInCard">
+        <h2>Personal Profile</h2>
+        <p>My first HTML page with basic form elements and personal information.</p>
+        <a href="week1.html">View Page</a>
+      </div>
+
+      <div class="page-card fadeInCard delay-1">
+        <h2>Animated Portfolio</h2>
+        <p>A responsive portfolio with animations, flexbox layout, and timeline.</p>
+        <a href="week2.html">View Page</a>
+      </div>
+
+      <div class="page-card fadeInCard delay-2">
+        <h2>E-Commerce Store</h2>
+        <p>A product showcase with shopping cart functionality and modern design.</p>
+        <a href="week3.html">View Page</a>
+      </div>
+
+      <div class="page-card fadeInCard delay-3">
+        <h2>Bootstrap Store</h2>
+        <p>Enhanced e-commerce site using Bootstrap framework with cart system.</p>
+        <a href="week4.html">View Page</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2023 Aashika's Portfolio Hub | All projects created as part of web development learning</p>
+  </footer>
+</body>
+</html>

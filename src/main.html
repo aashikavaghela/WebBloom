@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aashika's Interactive Portfolio & Trendy Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+      background: linear-gradient(45deg, #2e7d32, #4caf50);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      color: #28a745 !important;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* Hero/Profile */
+    .hero {
+      background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+      box-shadow: 0 10px 40px rgba(76, 175, 80, 0.10);
+      border-radius: 0 0 60px 60px;
+      text-align: center;
+      padding: 90px 30px 70px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(44, 62, 80, 0.18);
+      background: linear-gradient(45deg, #040404 60%, #3498db 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 15px;
+      color: #222;
+      font-weight: 400;
+    }
+
+    .hero-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 35px auto 0 auto;
+      border: 5px solid #fff;
+      box-shadow: 0 8px 32px rgba(52, 152, 219, 0.10);
+      display: block;
+    }
+
+    /* Portfolio */
+    .portfolio {
+      background: linear-gradient(135deg, #f8fffc 0%, #e4f9e2 100%);
+      border-radius: 40px;
+      box-shadow: 0 4px 24px rgba(76, 175, 80, 0.07);
+      margin-bottom: 40px;
+    }
+
+    .portfolio-header {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #388e3c;
+      letter-spacing: 1px;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .portfolio-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(44, 62, 80, 0.10);
+      width: 310px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+      text-align: left;
+      padding: 0 0 20px 0;
+      position: relative;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-7px) scale(1.03);
+      box-shadow: 0 12px 32px rgba(44, 62, 80, 0.13);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .portfolio-card h3 {
+      font-size: 1.25rem;
+      margin: 18px 0 8px 0;
+      color: #2e7d32;
+      font-weight: 600;
+    }
+
+    .portfolio-card p {
+      color: #444;
+      font-size: 1rem;
+      margin: 0 18px 0 18px;
+      min-height: 48px;
+    }
+
+    /* Store Section */
+    .store {
+      background: linear-gradient(135deg, #f5fbe7 0%, #e0f2f1 100%);
+      border-radius: 40px;
+      box-shadow: 0 4px 24px rgba(76, 175, 80, 0.09);
+    }
+
+    .store-header {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #2e7d32;
+      letter-spacing: 1px;
+    }
+
+    .store-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(44, 62, 80, 0.10);
+      width: 310px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+      text-align: left;
+      padding: 0 0 18px 0;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px) scale(1.03);
+      box-shadow: 0 12px 32px rgba(44, 62, 80, 0.13);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 18px 18px 0 0;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .product-card h4 {
+      font-size: 1.17rem;
+      margin: 18px 0 8px 0;
+      color: #4caf50;
+      font-weight: 600;
+    }
+
+    .product-card p {
+      color: #333;
+      font-size: 1.05rem;
+      margin: 0 18px 0 18px;
+      min-height: 30px;
+    }
+
+    .ribbon {
+      position: absolute;
+      top: 16px;
+      left: -40px;
+      background: linear-gradient(45deg, #f44336, #ff7043);
+      color: #fff;
+      padding: 6px 50px;
+      transform: rotate(-45deg);
+      font-size: 0.85rem;
+      font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      z-index: 2;
+      overflow: visible;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #d32f2f;
+      top: 100%;
+      z-index: -1;
+    }
+
+    .ribbon::before {
+      left: 0;
+      border-top-left-radius: 4px;
+      transform: skewY(-25deg);
+    }
+
+    .ribbon::after {
+      right: 0;
+      border-top-right-radius: 4px;
+      transform: skewY(25deg);
+    }
+
+    .add-cart-btn {
+      border-radius: 25px;
+      padding: 8px 25px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, #4caf50, #2e7d32);
+      color: #fff;
+      border: none;
+      margin: 0 18px;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.15);
+    }
+
+    .add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.21);
+      background: linear-gradient(45deg, #2e7d32, #1b5e20);
+    }
+
+    /* Cart Button */
+    .cart-btn {
+      background: transparent;
+      border: 2px solid #333;
+      color: #333;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      margin-left: 15px;
+      font-weight: 600;
+      padding: 7px 22px 7px 40px;
+      font-size: 1.07rem;
+    }
+
+    .cart-btn:hover {
+      background: #333;
+      color: white;
+    }
+
+    .cart-btn .bi-cart {
+      font-size: 1.3rem;
+      margin-right: 7px;
+      vertical-align: -2px;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #f44336;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 0 2px #fff;
+      z-index: 3;
+    }
+
+    /* Contact */
+    .contact {
+      background: linear-gradient(135deg, #f8fffc 0%, #e4f9e2 100%);
+      border-radius: 40px;
+      box-shadow: 0 4px 24px rgba(76, 175, 80, 0.07);
+      margin-top: 40px;
+    }
+
+    .contact-header {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #388e3c;
+      letter-spacing: 1px;
+    }
+
+    .contact-form {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(44, 62, 80, 0.10);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      border-radius: 10px;
+      padding: 12px;
+      border: 2px solid #ddd;
+      margin-bottom: 15px;
+      width: 100%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #28a745;
+      box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.12);
+    }
+
+    .contact-form button {
+      border-radius: 25px;
+      padding: 10px 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      background: linear-gradient(45deg, #4caf50, #2e7d32);
+      color: #fff;
+      border: none;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .contact-form button:hover {
+      background: linear-gradient(45deg, #2e7d32, #1b5e20);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.21);
+    }
+
+    @media (max-width: 900px) {
+
+      .portfolio-grid,
+      .store-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .portfolio-header,
+      .store-header,
+      .contact-header {
+        font-size: 1.3rem;
+      }
+
+      .portfolio-card,
+      .product-card {
+        width: 95vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">Aashika</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#store">Store</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <button class="cart-btn position-relative ms-3" id="cartBtn" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="bi bi-cart"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+          <span id="cartTotalBtn">$0.00</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero/Profile Section -->
+  <section id="hero" class="hero">
+    <img src="../img/crop_profile.jpg" alt="Profile" class="hero-img">
+    <h1>Aashika Vaghela</h1>
+    <p>Web Developer | Designer | Creative Thinker</p>
+    <p>Welcome to my interactive portfolio & trendy store. Explore my work, shop unique products, and connect!</p>
+  </section>
+
+  <!-- Fun Facts & Achievements Section -->
+  <section id="fun-facts"
+    style="background: linear-gradient(135deg, #f9fbe7 0%, #e0f7fa 100%); border-radius: 40px; box-shadow: 0 4px 24px rgba(76,175,80,0.09); margin: 40px 0;">
+    <div class="container py-5">
+      <h2 class="text-center mb-4" style="color: #2e7d32; font-weight: 700;">Fun Facts & Early Milestones</h2>
+      <div class="row text-center">
+        <div class="col-md-3 mb-4">
+          <div style="font-size:2.5rem; color:#4caf50;"><i class="bi bi-rocket"></i></div>
+          <h5 class="mt-3">First Steps</h5>
+          <p>Just wrote my very first lines of code—excited for the journey ahead!</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div style="font-size:2.5rem; color:#ff7043;"><i class="bi bi-lightbulb"></i></div>
+          <h5 class="mt-3">Beginner Projects</h5>
+          <p>Completed my first web page and a few fun mini-projects.</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div style="font-size:2.5rem; color:#3498db;"><i class="bi bi-people"></i></div>
+          <h5 class="mt-3">Learning Community</h5>
+          <p>Joined online coding groups to learn and grow together.</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div style="font-size:2.5rem; color:#ffd600;"><i class="bi bi-emoji-smile"></i></div>
+          <h5 class="mt-3">Proud Moments</h5>
+          <p>Debugged my first error and celebrated every small win!</p>
+        </div>
+      </div>
+      <div class="text-center mt-4" style="font-size:1.1rem;color:#2e7d32;">Every expert was once a beginner. Keep
+        going!</div>
+    </div>
+  </section>
+
+  <!-- Behind the Scenes Section -->
+  <section id="behind-scenes"
+    style="background: linear-gradient(135deg, #fffde7 0%, #e1f5fe 100%); border-radius: 40px; box-shadow: 0 4px 24px rgba(76,175,80,0.07); margin: 40px 0;">
+    <div class="container py-5">
+      <h2 class="text-center mb-4" style="color: #0288d1; font-weight: 700;">Behind the Scenes</h2>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-2 text-center mb-4">
+          <div style="font-size:2.5rem;color:#ff7043;"><i class="bi bi-cup-hot"></i></div>
+          <div class="fw-bold mt-2">Morning Brew</div>
+          <div style="font-size:0.95rem;">Start with coffee &amp; inspiration</div>
+        </div>
+        <div class="col-md-2 text-center mb-4">
+          <div style="font-size:2.5rem;color:#388e3c;"><i class="bi bi-code-slash"></i></div>
+          <div class="fw-bold mt-2">Deep Work</div>
+          <div style="font-size:0.95rem;">Focused coding &amp; design sprints</div>
+        </div>
+        <div class="col-md-2 text-center mb-4">
+          <div style="font-size:2.5rem;color:#ffd600;"><i class="bi bi-lightning-charge"></i></div>
+          <div class="fw-bold mt-2">Creative Breaks</div>
+          <div style="font-size:0.95rem;">Sketching, music, and walks</div>
+        </div>
+        <div class="col-md-2 text-center mb-4">
+          <div style="font-size:2.5rem;color:#7952b3;"><i class="bi bi-people"></i></div>
+          <div class="fw-bold mt-2">Collaboration</div>
+          <div style="font-size:0.95rem;">Team chats &amp; brainstorming</div>
+        </div>
+        <div class="col-md-2 text-center mb-4">
+          <div style="font-size:2.5rem;color:#00bcd4;"><i class="bi bi-stars"></i></div>
+          <div class="fw-bold mt-2">Launch &amp; Reflect</div>
+          <div style="font-size:0.95rem;">Deploy, share, and celebrate!</div>
+        </div>
+      </div>
+      <div class="text-center mt-4" style="font-size:1.1rem;color:#0288d1;">Every day is a new adventure in code &amp;
+        creativity!</div>
+    </div>
+  </section>
+
+  <!-- Interactive Tech Stack Section -->
+  <section id="tech-stack"
+    style="background: linear-gradient(135deg, #e3ffe7 0%, #f3e7ff 100%); border-radius: 40px; box-shadow: 0 4px 24px rgba(76,175,80,0.07); margin: 40px 0;">
+    <div class="container py-5">
+      <h2 class="text-center mb-4" style="color: #4caf50; font-weight: 700;">My Tech Stack</h2>
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
+        <div class="text-center">
+          <i class="bi bi-filetype-html" style="font-size:2.8rem;color:#e44d26;animation:bounce 2s infinite;"></i>
+          <div>HTML5</div>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-filetype-css" style="font-size:2.8rem;color:#2965f1;animation:bounce 2.2s infinite;"></i>
+          <div>CSS3</div>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-filetype-js" style="font-size:2.8rem;color:#ffd600;animation:bounce 2.4s infinite;"></i>
+          <div>JavaScript</div>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-bootstrap" style="font-size:2.8rem;color:#7952b3;animation:bounce 2.6s infinite;"></i>
+          <div>Bootstrap</div>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-git" style="font-size:2.8rem;color:#f1502f;animation:bounce 2.8s infinite;"></i>
+          <div>Git</div>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-cloud" style="font-size:2.8rem;color:#00bcd4;animation:bounce 3s infinite;"></i>
+          <div>Cloud</div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes bounce {
+
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+    </style>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="portfolio-header">Portfolio</div>
+      <div class="portfolio-grid portfolio-grid-2x2">
+        <div class="portfolio-row">
+          <a href="week2.html" style="text-decoration:none;color:inherit;">
+            <div class="portfolio-card">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+                alt="Project 1">
+              <h3>Animated Portfolio</h3>
+              <p>A responsive gallery layout using CSS Flexbox and subtle animations for a modern portfolio look.</p>
+            </div>
+          </a>
+          <a href="week1.html" style="text-decoration:none;color:inherit;">
+            <div class="portfolio-card">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                alt="Project 2">
+              <h3>Personal Profile</h3>
+              <p>A creative and modern personal profile with gradients, glassmorphism, and smooth scrolling.</p>
+            </div>
+          </a>
+        </div>
+        <div class="portfolio-row">
+          <a href="week3.html" style="text-decoration:none;color:inherit;">
+            <div class="portfolio-card">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Project 3">
+              <h3>E-Commerce Store</h3>
+              <p>A stylish e-commerce product grid with ribbons, cart modal, and checkout logic using Bootstrap and
+                custom JS.</p>
+            </div>
+          </a>
+          <a href="week4.html" style="text-decoration:none;color:inherit;">
+            <div class="portfolio-card">
+              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Project 4">
+              <h3>Bootstrap Store</h3>
+              <p>Modern Bootstrap-based store UI with advanced ribbons, cart modal, and product visuals.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <style>
+        .portfolio-grid-2x2 {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+          align-items: center;
+        }
+
+        .portfolio-row {
+          display: flex;
+          gap: 2.5rem;
+          justify-content: center;
+        }
+
+        @media (max-width: 900px) {
+          .portfolio-row {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+          }
+
+          .portfolio-grid-2x2 {
+            gap: 2rem;
+          }
+        }
+      </style>
+    </div>
+  </section>
+
+  <!-- Store Section -->
+  <section id="store" class="store">
+    <div class="container">
+      <div class="store-header">Our Collection</div>
+      <div class="store-row">
+        <div class="product-card">
+          <div class="ribbon">Best Seller</div>
+          <img src="../img/luxury_watch.jpg" alt="Luxury Watch">
+          <h4>Luxury Watch</h4>
+          <p>Elegant, timeless, and crafted for those who value sophistication.</p>
+          <p class="text-success fw-bold">$99.59</p>
+          <button class="add-cart-btn" onclick="addToCart('Luxury Watch', 99.59)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="ribbon">New</div>
+          <img src="../img/luxury_perfume.jpg" alt="Luxury Perfume">
+          <h4>Luxury Perfume</h4>
+          <p>Captivating fragrance with a blend of rare floral notes for a lasting impression.</p>
+          <p class="text-success fw-bold">$79.99</p>
+          <button class="add-cart-btn" onclick="addToCart('Luxury Perfume', 79.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="ribbon">Hot Deal</div>
+          <img src="../img/sneakers.jpg" alt="Sneakers">
+          <h4>Sneakers</h4>
+          <p>Comfort meets style in these modern sneakers for everyday adventures.</p>
+          <p class="text-success fw-bold">$120.99</p>
+          <button class="add-cart-btn" onclick="addToCart('Sneakers', 120.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="ribbon">Trending</div>
+          <img src="../img/smart_watch.jpg" alt="Smart Watch">
+          <h4>Smart Watch</h4>
+          <p>Stay connected and track your fitness with this sleek, modern smartwatch.</p>
+          <p class="text-success fw-bold">$149.99</p>
+          <button class="add-cart-btn" onclick="addToCart('Smart Watch', 149.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="ribbon">Limited</div>
+          <img src="../img/tote_bag.jpg" alt="Tote Bag">
+          <h4>Tote Bag</h4>
+          <p>Spacious, stylish, and eco-friendly tote for your daily essentials.</p>
+          <p class="text-success fw-bold">$39.00</p>
+          <button class="add-cart-btn" onclick="addToCart('Tote Bag', 39.00)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <div class="ribbon">Sale</div>
+          <img src="../img/wireless_headphone.jpg" alt="Wireless Headphones">
+          <h4>Wireless Headphones</h4>
+          <p>Experience immersive sound and comfort with these wireless headphones.</p>
+          <p class="text-success fw-bold">$89.95</p>
+          <button class="add-cart-btn" onclick="addToCart('Wireless Headphones', 89.95)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials Section -->
+  <section id="testimonials"
+    style="background: linear-gradient(135deg, #f3e7ff 0%, #e3ffe7 100%); border-radius: 40px; box-shadow: 0 4px 24px rgba(76,175,80,0.09); margin: 40px 0;">
+    <div class="container py-5">
+      <h2 class="text-center mb-4" style="color: #7952b3; font-weight: 700;">What People Say</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <div class="p-4" style="background:#fff;border-radius:18px;box-shadow:0 2px 12px rgba(44,62,80,0.07);">
+            <div class="mb-2" style="color:#4caf50;font-size:2rem;"><i class="bi bi-quote"></i></div>
+            <p>"Aashika's designs always stand out. Her attention to detail and creativity are top-notch!"</p>
+            <div class="fw-bold mt-2">— Priya S., Product Manager</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4" style="background:#fff;border-radius:18px;box-shadow:0 2px 12px rgba(44,62,80,0.07);">
+            <div class="mb-2" style="color:#ff7043;font-size:2rem;"><i class="bi bi-quote"></i></div>
+            <p>"Working with Aashika was a joy. She delivered our project ahead of schedule and exceeded expectations."
+            </p>
+            <div class="fw-bold mt-2">— John D., Startup Founder</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4" style="background:#fff;border-radius:18px;box-shadow:0 2px 12px rgba(44,62,80,0.07);">
+            <div class="mb-2" style="color:#3498db;font-size:2rem;"><i class="bi bi-quote"></i></div>
+            <p>"The e-commerce store is so easy to use and visually appealing. My customers love it!"</p>
+            <div class="fw-bold mt-2">— Meera P., Boutique Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Inspired Section -->
+  <section id="get-inspired"
+    style="background: linear-gradient(135deg, #f9fbe7 0%, #e0f7fa 100%); border-radius: 40px; box-shadow: 0 4px 24px rgba(76,175,80,0.09); margin: 40px 0;">
+    <div class="container py-5">
+      <h2 class="text-center mb-4" style="color: #ff7043; font-weight: 700;">Get Inspired</h2>
+      <div id="quoteCarousel" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width:600px;">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <blockquote class="blockquote text-center">
+              <p class="mb-4" style="font-size:1.3rem;">"Creativity is intelligence having fun."</p>
+              <footer class="blockquote-footer">Albert Einstein</footer>
+            </blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote class="blockquote text-center">
+              <p class="mb-4" style="font-size:1.3rem;">"The best way to predict the future is to invent it."</p>
+              <footer class="blockquote-footer">Alan Kay</footer>
+            </blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote class="blockquote text-center">
+              <p class="mb-4" style="font-size:1.3rem;">"Design is not just what it looks like and feels like. Design is
+                how it works."</p>
+              <footer class="blockquote-footer">Steve Jobs</footer>
+            </blockquote>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-header">Contact Me</div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out!'); this.reset();">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group mb-3" id="cartList"></ul>
+          <h5>Total: $<span id="cartTotal">0.00</span></h5>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let cart = [], total = 0;
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      total += price;
+      updateCart();
+    }
+    function updateCart() {
+      const cartList = document.getElementById("cartList");
+      cartList.innerHTML = "";
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+          ${item.name}
+          <span>
+            $${item.price.toFixed(2)} 
+            <button class="btn btn-sm btn-danger ms-2" onclick="removeFromCart(${index})">Remove</button>
+          </span>
+        `;
+        cartList.appendChild(li);
+      });
+      document.getElementById("cartTotal").innerText = total.toFixed(2);
+      document.getElementById("cartCount").innerText = cart.length;
+      document.getElementById("cartTotalBtn").innerText = `$${total.toFixed(2)}`;
+    }
+    function removeFromCart(index) {
+      total -= cart[index].price;
+      cart.splice(index, 1);
+      updateCart();
+    }
+    document.getElementById("checkoutBtn").addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert(`Thank you! Your order total is $${total.toFixed(2)}`);
+      cart = [];
+      total = 0;
+      updateCart();
+      const modal = bootstrap.Modal.getInstance(document.getElementById("cartModal"));
+      modal.hide();
+    });
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        if (this.hash) {
+          e.preventDefault();
+          document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
